@@ -4,9 +4,7 @@ const MongoClient = mongodb.MongoClient;
 
 const router = express.Router();
 
-const url =
-  'mongodb+srv://maximilian:MfwKGzkrovQHJGbf@cluster0-ntrwp.mongodb.net/locations?retryWrites=true&w=majority';
-
+const url = 'mongodb+srv://NewDb:NewDb@clusterone.plhk1.mongodb.net/LocDb?retryWrites=true&w=majority';
 const client = new MongoClient(url);
 
 const locationStorage = {
@@ -16,7 +14,7 @@ const locationStorage = {
 router.post('/add-location', (req, res, next) => {
   // const id = Math.random();
   client.connect(function(err, client) {
-    const db = client.db('locations');
+    const db = client.db('LocDb');
 
     // Insert a single document
     db.collection('user-locations').insertOne(
